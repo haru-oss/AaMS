@@ -46,8 +46,6 @@ export default function Home() {
             <Input  />
           </FormControl>
 
-          <FormControl>
-          </FormControl>
 
           <FormControl>
             <FormLabel>場所</FormLabel>
