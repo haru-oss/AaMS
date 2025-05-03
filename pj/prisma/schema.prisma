@@ -17,3 +17,14 @@ datasource db {
   directUrl      = env("DIRECT_URL")
 }
 
+
+
+model User {
+  id        Int      @id @default(autoincrement())
+  MonitordAt DateTime @default(now())
+  name     String   @unique
+  authorized String
+  memo String
+  product String
+  place String
+}
