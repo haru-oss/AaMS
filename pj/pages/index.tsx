@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <Box maxW="600px" mx="auto" mt={10} p={6} borderWidth={1} borderRadius="lg" boxShadow="md">
       <form>
-        <VStack spacing={6} align="stretch">
+        <VStack spacing={3} align="stretch">
           <FormControl isRequired>
             <FormLabel>投入日</FormLabel>
             <Box
@@ -17,6 +17,7 @@ export default function Home() {
               borderColor="gray.200"
               borderRadius="md"
               p={2}
+              mb={2}
             >
             <DatePicker
               selected={startDate}
@@ -41,7 +42,7 @@ export default function Home() {
           </FormControl>
 
           <FormControl>
-            <FormLabel>道具</FormLabel>
+            <FormLabel>商品記号など</FormLabel>
             <Input  />
           </FormControl>
 
@@ -56,6 +57,7 @@ export default function Home() {
           <Button colorScheme="blue" size="lg" type="submit" mt={4}>
             送信
           </Button>
+
         </VStack>
       </form>
     </Box>
