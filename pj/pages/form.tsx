@@ -6,7 +6,9 @@ import "react-datepicker/dist/react-datepicker.css"
 export default function Home() {
   const [startDate, setStartDate] = useState(new Date());
 
-  const handleSubmit = ()=>{};
+  const handleSubmit = ()=>{
+    // ここにfech処理を書く
+  };
 
   return (
 
