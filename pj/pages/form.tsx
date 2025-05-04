@@ -2,6 +2,7 @@ import { Button, Textarea, FormControl, Link,Input, FormLabel, Box, VStack } fro
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"
+import axios from 'axios';
 
 export default function Home() {
   const [startDate, setStartDate] = useState(new Date());
@@ -25,22 +26,17 @@ export default function Home() {
     };
 
     try {
-      const res = await fetch('/api/save',{
-        method : 'POST',
-        headers:{
-          'Content-Type': 'applocation/json'
-        },
-        body: JSON.stringify(dataToSend)
-      });
-      if(res.ok){
-        alert('送信成功！')
+      const res = await axios.post('/api/save', dataToSend);
+
+      if (res.status === 200) {
+        alert('送信成功！');
         setFormData({
-             storeName: "",
-             decisionMaker: "",
-             notes: "",
-             productCode: "",
-             location: ""
-        })
+          storeName: "",
+          decisionMaker: "",
+          notes: "",
+          productCode: "",
+          location: ""
+        });
         setStartDate(new Date());
       }else{
         alert('送信失敗')
@@ -49,13 +45,7 @@ export default function Home() {
       console.error('送信エラー：',error);
       alert('通信エラーが発生しました')
     };
-    ;
 
-
-
-
-
-    // ここにfech処理を書く
   };
 // ------------------------------------------------------------------------------------------
   return (
