@@ -6,6 +6,15 @@ import "react-datepicker/dist/react-datepicker.css"
 export default function Home() {
   const [startDate, setStartDate] = useState(new Date());
 
+  const [formData,setFormData] = useState({
+    storeName: "",
+    decisionMaker: "",
+    notes: "",
+    productCode: "",
+    location: ""
+  })
+
+
   const handleSubmit = ()=>{
     // ここにfech処理を書く
   };
@@ -16,9 +25,12 @@ export default function Home() {
         <Button colorScheme='teal' >
             <Link href="/">Home</Link>
        </Button>
-
+{/* ------------------------------------------------------------------------------------------------------------------- */}
       <form onSubmit={handleSubmit}>
         <VStack spacing={3} align="stretch">
+{/* ------------------------------------------------------------------------------------------------------------------- */}
+{/* ここはinputタグではないため後回し。一旦inputタグのstate設定から始める */}
+
             <FormControl isRequired>
               <FormLabel>投入日</FormLabel>
               <Box
@@ -34,39 +46,64 @@ export default function Home() {
                 dateFormat="yyyy/MM/dd"
                 className="chakra-input css-1c6u84y"
               />
-
               </Box>
-              <FormLabel>店名</FormLabel>
-              <Input />
             </FormControl>
+{/* ------------------------------------------------------------------------------------------------------------------- */}
+              <FormControl isRequired>
+                <FormLabel>店名</FormLabel>
+                <Input
+                       value={formData.storeName}
+                       onChange={(e) => setFormData({ ...formData, storeName: e.target.value })}
+                  />
+              </FormControl>
+
+{/* ------------------------------------------------------------------------------------------------------------------- */}
+
 
             <FormControl isRequired>
               <FormLabel>決済者</FormLabel>
-              <Input  />
+              <Input
+                       value={formData.decisionMaker}
+                       onChange={(e) => setFormData({ ...formData, decisionMaker: e.target.value })}
+                  />
             </FormControl>
-
+{/* ------------------------------------------------------------------------------------------------------------------- */}
             <FormControl>
               <FormLabel>他社情報、会えた人、決済者の出勤日等</FormLabel>
-              <Textarea  />
-            </FormControl>
+              <Textarea
+                       value={formData.notes}
+                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
 
+              />
+            </FormControl>
+{/* ------------------------------------------------------------------------------------------------------------------- */}
             <FormControl>
               <FormLabel>商品記号など</FormLabel>
-              <Input  />
+              <Input
+                       value={formData.productCode}
+                       onChange={(e) => setFormData({ ...formData, productCode: e.target.value })}
+                  />
+
+
             </FormControl>
 
-
+{/* ------------------------------------------------------------------------------------------------------------------- */}
             <FormControl>
               <FormLabel>場所</FormLabel>
-              <Input placeholder='場所を入力してください' />
-            </FormControl>
+              <Input
+                       value={formData.location}
+                       onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                  />
 
+            </FormControl>
+{/* ------------------------------------------------------------------------------------------------------------------- */}
             <Button colorScheme="blue" size="lg" mt={4} type="submit">
               送信
             </Button>
 
         </VStack>
       </form>
+{/* ------------------------------------------------------------------------------------------------------------------- */}
     </Box>
   );
 }
