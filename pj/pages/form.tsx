@@ -14,11 +14,50 @@ export default function Home() {
     location: ""
   })
 
+  // -----------------------------------------------------------------------------------------
 
-  const handleSubmit = ()=>{
+  const handleSubmit =async (e: React.FormEvent) => {
+    e.preventDefault(); // リロード防止
+
+    const dataToSend ={
+      ...formData,
+      date: startDate
+    };
+
+    try {
+      const res = await fetch('/api/save',{
+        method : 'POST',
+        headers:{
+          'Content-Type': 'applocation/json'
+        },
+        body: JSON.stringify(dataToSend)
+      });
+      if(res.ok){
+        alert('送信成功！')
+        setFormData({
+             storeName: "",
+             decisionMaker: "",
+             notes: "",
+             productCode: "",
+             location: ""
+        })
+        setStartDate(new Date());
+      }else{
+        alert('送信失敗')
+      }
+    } catch(error){
+      console.error('送信エラー：',error);
+      alert('通信エラーが発生しました')
+    };
+    ;
+
+
+
+
+
     // ここにfech処理を書く
   };
-
+// ------------------------------------------------------------------------------------------
   return (
 
     <Box maxW="600px" mx="auto" mt={10} p={6} borderWidth={1} borderRadius="lg" boxShadow="md">
@@ -29,7 +68,7 @@ export default function Home() {
       <form onSubmit={handleSubmit}>
         <VStack spacing={3} align="stretch">
 {/* ------------------------------------------------------------------------------------------------------------------- */}
-{/* ここはinputタグではないため後回し。一旦inputタグのstate設定から始める */}
+{/* date型のため、別保管で問題なし。*/}
 
             <FormControl isRequired>
               <FormLabel>投入日</FormLabel>
