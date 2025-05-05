@@ -6,12 +6,12 @@ const prisma = new PrismaClient()
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
-res.status(405).json({ message: 'Method not allowed' })
-return;
+    return res.status(405).json({ message: 'Method not allowed' })
+;
   }
 
+  const { storeName, decisionMaker, notes, productCode, location, date } = req.body
   try {
-    const { storeName, decisionMaker, notes, productCode, location, date } = req.body
 
     const result = await prisma.user.create({
       data: {
