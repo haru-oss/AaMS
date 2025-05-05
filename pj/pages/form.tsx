@@ -51,6 +51,11 @@ export default function Home() {
   return (
 
     <Box maxW="600px" mx="auto" mt={10} p={6} borderWidth={1} borderRadius="lg" boxShadow="md">
+       <Button colorScheme='teal' >
+    <Link href="/usertable">usertable</Link>
+    </Button>
+
+
         <Button colorScheme='teal' >
             <Link href="/">Home</Link>
        </Button>

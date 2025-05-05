@@ -8,10 +8,13 @@ export default function Home() {
 
   return (
     <>
-    <Button colorScheme='teal' >
-    <Link href="/form">form</Link>
+        <Button colorScheme='teal' >
+           <Link href="/form">form</Link>
+        </Button>
 
-    </Button>
+        <Button colorScheme='teal' >
+           <Link href="/usertable">usertable</Link>
+        </Button>
 
 
     </>
