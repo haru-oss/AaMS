@@ -16,11 +16,11 @@ datasource db {
 }
 
 model User {
-  id         Int      @id @default(autoincrement())
-  MonitordAt DateTime @default(now())
-  name       String   @unique
-  authorized String
-  memo       String
-  product    String
-  place      String
+  id            Int      @id @default(autoincrement())
+  storeName     String   @unique
+  decisionMaker String
+  notes         String
+  productCode   String
+  location      String
+  MonitordAt    DateTime @default(now())
 }
