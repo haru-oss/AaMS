@@ -39,6 +39,12 @@ export default function UserTable () {
        <Button colorScheme='teal' >
          <Link href="/form">form</Link>
        </Button>
+       <Button colorScheme='teal' >
+         <Link href="/">home</Link>
+       </Button>
+       <Button colorScheme='teal' >
+         <Link href="/usertable">usertable</Link>
+       </Button>
 
        <Box maxW="90%" mx="auto" mt={10}>
       <Heading mb={6}>顧客一覧</Heading>
@@ -51,6 +57,8 @@ export default function UserTable () {
             <Th>メモ</Th>
             <Th>商品記号</Th>
             <Th>場所</Th>
+            <Th>回収</Th>
+            <Th>契約</Th>
           </Tr>
         </Thead>
         <Tbody>
@@ -62,6 +70,8 @@ export default function UserTable () {
               <Td>{user.notes}</Td>
               <Td>{user.productCode}</Td>
               <Td>{user.location}</Td>
+              <Td> <Button>回収</Button></Td>
+              <Td> <Button>契約</Button></Td>
             </Tr>
           ))}
         </Tbody>
