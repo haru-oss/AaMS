@@ -4,6 +4,18 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"
 import axios from 'axios';
 
+import {  Flex, IconButton } from "@chakra-ui/react";
+
+
+import {
+  AtSignIcon,
+  CalendarIcon,
+  AddIcon,
+  CheckCircleIcon,
+  InfoIcon,
+} from "@chakra-ui/icons";
+
+
 export default function Home() {
   const [startDate, setStartDate] = useState(new Date());
 
@@ -138,7 +150,47 @@ export default function Home() {
         </VStack>
       </form>
 {/* ------------------------------------------------------------------------------------------------------------------- */}
+
+<Box
+      position="fixed"
+      bottom="0"
+      width="100%"
+      bg="white"
+      borderTop="1px solid #e2e8f0"
+      zIndex="100"
+    >
+      <Flex justify="space-around" p={2}>
+        <IconButton
+          icon={<CalendarIcon />}
+          aria-label="ダッシュボード"
+          variant="ghost"
+        />
+        <IconButton
+          icon={<AtSignIcon />}
+          aria-label="未回収リスト"
+          variant="ghost"
+        />
+        <IconButton
+          icon={<AddIcon />}
+          aria-label="登録フォーム"
+          variant="ghost"
+        />
+        <IconButton
+          icon={<CheckCircleIcon />}
+          aria-label="契約・未契約リスト"
+          variant="ghost"
+        />
+        <IconButton
+          icon={<InfoIcon />}
+          aria-label="その他"
+          variant="ghost"
+        />
+      </Flex>
     </Box>
+
+    </Box>
+
+
   );
 }
 

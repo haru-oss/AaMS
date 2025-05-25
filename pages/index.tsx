@@ -11,6 +11,7 @@ export default function Home() {
         <Button colorScheme='teal' >
            <Link href="/form">form</Link>
         </Button>
+        <Link href='https://wobbly-cheek-3f0.notion.site/1fd82966d97d8082b526f421d914ddb3'>なんすかこれは？？？？</Link>
 
         <Button colorScheme='teal' >
            <Link href="/usertable">usertable</Link>
